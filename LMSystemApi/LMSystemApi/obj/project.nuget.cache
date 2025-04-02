@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yIKKGaZApbU=",
+  "dgSpecHash": "KkDHdw0fFAY=",
   "success": true,
-  "projectFilePath": "D:\\Programs\\todo-project\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj",
+  "projectFilePath": "D:\\Programs\\LMSystem\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SpacecapsAlex\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\SpacecapsAlex\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.14\\microsoft.aspnetcore.openapi.8.0.14.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programs\\todo-project\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj": {}
+    "D:\\Programs\\LMSystem\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj": {}
   },
   "projects": {
-    "D:\\Programs\\todo-project\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj": {
+    "D:\\Programs\\LMSystem\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programs\\todo-project\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj",
+        "projectUniqueName": "D:\\Programs\\LMSystem\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj",
         "projectName": "LMSystemApi",
-        "projectPath": "D:\\Programs\\todo-project\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj",
+        "projectPath": "D:\\Programs\\LMSystem\\LMSystemApi\\LMSystemApi\\LMSystemApi.csproj",
         "packagesPath": "C:\\Users\\SpacecapsAlex\\.nuget\\packages\\",
-        "outputPath": "D:\\Programs\\todo-project\\LMSystemApi\\LMSystemApi\\obj\\",
+        "outputPath": "D:\\Programs\\LMSystem\\LMSystemApi\\LMSystemApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LMSystemApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c23c11031311e3025a553c74b9009c3f453175ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab561a7a852ebf7e4c3814f46d9eaf332a3568e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("LMSystemApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LMSystemApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
