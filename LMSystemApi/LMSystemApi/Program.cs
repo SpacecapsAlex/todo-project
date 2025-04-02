@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TodoWepApi.Data;
+using LMSystemApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

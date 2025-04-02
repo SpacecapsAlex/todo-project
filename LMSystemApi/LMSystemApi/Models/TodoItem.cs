@@ -1,4 +1,4 @@
-﻿namespace TodoWepApi.Models;
+﻿namespace LMSystemApi.Models;
 
 public class TodoItem
 {

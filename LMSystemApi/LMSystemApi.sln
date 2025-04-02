@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoWepApi", "TodoWepApi\TodoWepApi.csproj", "{CFAD4F27-98D4-4DCB-8147-0267578D0C61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMSystemApi", "LMSystemApi\LMSystemApi.csproj", "{CFAD4F27-98D4-4DCB-8147-0267578D0C61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

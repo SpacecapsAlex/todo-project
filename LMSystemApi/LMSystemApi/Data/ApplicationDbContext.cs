@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TodoWepApi.Models;
+﻿using LMSystemApi.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace TodoWepApi.Data;
+namespace LMSystemApi.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
 {

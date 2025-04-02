@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LMSystemApi.Data;
+using LMSystemApi.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TodoWepApi.Data;
-using TodoWepApi.Models;
 
-namespace TodoWepApi.Controllers;
+namespace LMSystemApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
