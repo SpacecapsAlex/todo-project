@@ -4,3 +4,7 @@ TodoWepApi/TodoWepApi/bin/
 TodoWepApi/TodoWepApi/obj/project.assets.json
 TodoWepApi/TodoWepApi/obj/Debug/net8.0/TodoWepApi.AssemblyInfoInputs.cache
 TodoWepApi/TodoWepApi/obj/
+LMSystemApi/.vs/
+LMSystemApi/LMSystemApi/LMSystemApi.csproj.user
+LMSystemApi/LMSystemApi/bin/
+LMSystemApi/LMSystemApi/obj/
