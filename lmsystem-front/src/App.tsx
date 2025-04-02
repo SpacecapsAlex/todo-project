@@ -13,7 +13,8 @@ const App: React.FC = () => {
   const [todos, setTodos] = useState<TodoItem[]>([]);
   const [newTodo, setNewTodo] = useState('');
 
-  const apiUrl = 'https://localhost:7150/api/Todo';
+  const apiUrl = '/api/Todo';
+  // const apiUrl = 'https://localhost:7150/api/Todo';
 
   const fetchTodos = async () => {
     try {
