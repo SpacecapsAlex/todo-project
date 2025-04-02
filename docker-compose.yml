@@ -25,7 +25,7 @@ services:
     restart: always
 
   front:
-    build: ./todo-front
+    build: ./lmsystem-front
     environment:
       - NODE_ENV=production
     expose:
