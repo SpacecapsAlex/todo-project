@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace LMSystemApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class AuthController(ApplicationDbContext context, IConfiguration configuration) : ControllerBase
 {
     [HttpPost("register")]
