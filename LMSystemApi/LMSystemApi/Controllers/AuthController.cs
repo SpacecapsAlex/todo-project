@@ -19,11 +19,16 @@ public class AuthController(ApplicationDbContext context, IConfiguration configu
     {
         if (await context.Users.AnyAsync(u => u.Login == request.Login))
             return BadRequest("User already exists");
+        
+        var defaultRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "User");
+        if (defaultRole == null)
+            return BadRequest("Default role not configured");
 
         var user = new User
         {
             Login = request.Login,
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password)
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
+            Roles = [defaultRole]
         };
 
         context.Users.Add(user);
@@ -35,7 +40,10 @@ public class AuthController(ApplicationDbContext context, IConfiguration configu
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginRequest request)
     {
-        var user = await context.Users.FirstOrDefaultAsync(u => u.Login == request.Login);
+        var user = await context.Users
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(u => u.Login == request.Login);
+        
         if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
             return BadRequest("Invalid credentials");
 
@@ -48,13 +56,16 @@ public class AuthController(ApplicationDbContext context, IConfiguration configu
         var jwtSettings = configuration.GetSection("Jwt");
         var key = Encoding.ASCII.GetBytes(jwtSettings["Key"]!);
 
+        var claims = new List<Claim>
+        {
+            new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new(ClaimTypes.Name, user.Login)
+        };
+        claims.AddRange(user.Roles.Select(role => new Claim(ClaimTypes.Role, role.Name)));
+
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Login)
-            }),
+            Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["ExpireMinutes"])),
             Issuer = jwtSettings["Issuer"],
             Audience = jwtSettings["Audience"],

@@ -1,4 +1,5 @@
-﻿using LMSystemApi.Data;
+﻿using System.Security.Claims;
+using LMSystemApi.Data;
 using LMSystemApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,13 +9,29 @@ namespace LMSystemApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
 public class TodoController(ApplicationDbContext context) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
     {
         return await context.TodoItems.ToListAsync();
+    }
+    
+    [HttpGet("my-roles")]
+    public async Task<ActionResult<List<string>>> GetMyRoles()
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+            return Unauthorized("Invalid token");
+
+        var user = await context.Users
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(u => u.Id == userId);
+
+        if (user == null)
+            return NotFound("User not found");
+
+        return user.Roles.Select(r => r.Name).ToList();
     }
     
     [HttpGet("{id:long}")]
