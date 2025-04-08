@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/todo" element={<TodoMainPage />} />
+          <Route path="/" element={<TodoMainPage />} />
           <Route path="/login" element={<LoginPage /> } />
           <Route path="register" element={<RegisterPage /> } />
           <Route path="*" element={<NotFound />} />
