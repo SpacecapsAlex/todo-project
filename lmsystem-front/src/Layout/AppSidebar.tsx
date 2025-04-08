@@ -8,11 +8,14 @@ import {
   Logout as LogoutIcon,
   Menu as MenuIcon,
   ChevronLeft as ChevronLeftIcon,
-  ChevronRight as ChevronRightIcon
+  ChevronRight as ChevronRightIcon,
+  TaskAlt as TaskAltIcon,
+  Login as LoginIcon,
+  PersonAdd as PersonAddIcon
 } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 const collapsedWidth = 72;
@@ -66,6 +69,7 @@ interface AppSidebarProps {
 
 export const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const location = useLocation();
   const [hovered, setHovered] = useState(false);
 
@@ -73,7 +77,10 @@ export const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
     { text: 'Courses', icon: <SchoolIcon />, path: '/courses' },
     { text: 'Assignments', icon: <AssignmentIcon />, path: '/assignments' },
-    { text: 'Calendar', icon: <CalendarIcon />, path: '/calendar' }
+    { text: 'Calendar', icon: <CalendarIcon />, path: '/calendar' },
+    { text: 'Tasks', icon: <TaskAltIcon />, path: '/todo' },
+    { text: 'Login', icon: <LoginIcon />, path: '/login' },
+    { text: 'Register', icon: <PersonAddIcon />, path: '/register' },
   ];
 
   const bottomItems = [
@@ -123,6 +130,7 @@ export const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
             {menuItems.map((item) => (
               <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
+                  onClick={() => navigate(item.path)}
                   sx={{
                     minHeight: 48,
                     justifyContent: open ? 'initial' : 'center',
@@ -170,6 +178,7 @@ export const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
             {bottomItems.map((item) => (
               <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton
+                  onClick={() => navigate(item.path)}
                   sx={{
                     minHeight: 48,
                     justifyContent: open ? 'initial' : 'center',
