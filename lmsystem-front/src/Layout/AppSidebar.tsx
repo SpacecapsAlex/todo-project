@@ -78,7 +78,7 @@ export const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
     { text: 'Courses', icon: <SchoolIcon />, path: '/courses' },
     { text: 'Assignments', icon: <AssignmentIcon />, path: '/assignments' },
     { text: 'Calendar', icon: <CalendarIcon />, path: '/calendar' },
-    { text: 'Tasks', icon: <TaskAltIcon />, path: '/todo' },
+    { text: 'Common task list', icon: <TaskAltIcon />, path: '/todo' },
     { text: 'Login', icon: <LoginIcon />, path: '/login' },
     { text: 'Register', icon: <PersonAddIcon />, path: '/register' },
   ];
