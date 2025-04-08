@@ -9,6 +9,7 @@ namespace LMSystemApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class TodoController(ApplicationDbContext context) : ControllerBase
 {
     [HttpGet]

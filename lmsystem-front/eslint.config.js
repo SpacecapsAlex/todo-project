@@ -23,6 +23,23 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'space-infix-ops': 'error',
+      'block-spacing': 'error',
+      'keyword-spacing': ['error', {
+        'before': true,
+        'after': true
+      }],
+      'object-curly-spacing': ['error', 'always'],
+      'space-before-function-paren': ['error', {
+        'anonymous': 'always',
+        'named': 'never',
+        'asyncArrow': 'always'
+      }],
+      'arrow-spacing': ['error', { 'before': true, 'after': true }],
+      'array-bracket-spacing': ['error', 'never'],
+      'multiline-ternary': ['error', 'always-multiline'],
+      'spaced-comment': ['error', 'always'],
+      'comma-spacing': ['error', { 'before': false, 'after': true }]
     },
   },
 )

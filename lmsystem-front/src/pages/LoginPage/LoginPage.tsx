@@ -1,7 +1,8 @@
-import React, {useState} from "react";
-import {Box, Button, TextField, Typography} from "@mui/material";
+import React, { useState } from "react";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { useSnackbar } from 'notistack';
 
 type UserDataType = {
   login: string,
@@ -10,14 +11,15 @@ type UserDataType = {
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState<UserDataType>({login: '', password: ''});
+  const { enqueueSnackbar } = useSnackbar();
+  const [userData, setUserData] = useState<UserDataType>({ login: '', password: '' });
 
   const handleLoginChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserData({...userData, login: event.target.value});
+    setUserData({ ...userData, login: event.target.value });
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserData({...userData, password: event.target.value});
+    setUserData({ ...userData, password: event.target.value });
   };
 
   const handleMainPage = () => {
@@ -27,9 +29,10 @@ export const LoginPage = () => {
   const handleLogin = () => {
     axios.post('https://localhost:7150/api/Auth/login', userData).then((res) => {
       localStorage.setItem('token', `Bearer ${res.data.token}`);
+      enqueueSnackbar('Авторизация прошла успешно!')
       navigate('/');
     }).catch(() => {
-      console.log('error');
+      console.log('Ошибка при авторизации');
     });
   }
 

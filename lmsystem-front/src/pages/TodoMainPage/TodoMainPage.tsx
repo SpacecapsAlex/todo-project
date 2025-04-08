@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Button,
@@ -28,7 +28,11 @@ export const TodoMainPage = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get<TodoItem[]>(apiUrl);
+      const response = await axios.get<TodoItem[]>(apiUrl, {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      }
+    });
       setTodos(response.data);
     } catch (error) {
       console.error('Ошибка при загрузке задач', error);
@@ -42,7 +46,11 @@ export const TodoMainPage = () => {
   const addTodo = async () => {
     if (!newTodo.trim()) return;
     try {
-      const response = await axios.post<TodoItem>(apiUrl, { title: newTodo, isCompleted: false });
+      const response = await axios.post<TodoItem>(apiUrl, { title: newTodo, isCompleted: false }, {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        }
+      });
       setTodos([...todos, response.data]);
       setNewTodo('');
     } catch (error) {
@@ -53,7 +61,11 @@ export const TodoMainPage = () => {
   const toggleTodo = async (todo: TodoItem) => {
     try {
       const updatedTodo = { ...todo, isCompleted: !todo.isCompleted };
-      await axios.put(`${apiUrl}/${todo.id}`, updatedTodo);
+      await axios.put(`${apiUrl}/${todo.id}`, updatedTodo, {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        }
+      });
       setTodos(todos.map(t => t.id === todo.id ? updatedTodo : t));
     } catch (error) {
       console.error('Ошибка при обновлении задачи', error);
@@ -62,7 +74,11 @@ export const TodoMainPage = () => {
 
   const deleteTodo = async (id: number) => {
     try {
-      await axios.delete(`${apiUrl}/${id}`);
+      await axios.delete(`${apiUrl}/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        }
+      });
       setTodos(todos.filter(t => t.id !== id));
     } catch (error) {
       console.error('Ошибка при удалении задачи', error);
