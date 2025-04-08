@@ -1,9 +1,6 @@
 import { Drawer, Toolbar, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, IconButton, styled, Box } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
-  School as SchoolIcon,
-  Assignment as AssignmentIcon,
-  CalendarToday as CalendarIcon,
   Settings as SettingsIcon,
   Logout as LogoutIcon,
   Menu as MenuIcon,
@@ -75,9 +72,6 @@ export const AppSidebar = ({ open, onToggle }: AppSidebarProps) => {
 
   const menuItems = [
     { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
-    { text: 'Courses', icon: <SchoolIcon />, path: '/courses' },
-    { text: 'Assignments', icon: <AssignmentIcon />, path: '/assignments' },
-    { text: 'Calendar', icon: <CalendarIcon />, path: '/calendar' },
     { text: 'Common task list', icon: <TaskAltIcon />, path: '/todo' },
     { text: 'Login', icon: <LoginIcon />, path: '/login' },
     { text: 'Register', icon: <PersonAddIcon />, path: '/register' },
