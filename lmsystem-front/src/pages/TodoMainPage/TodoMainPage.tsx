@@ -142,7 +142,7 @@ export const TodoMainPage = () => {
             color: 'primary.main'
           }}
         >
-          Менеджер задач
+          Управление системными задачами
         </Typography>
 
         <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
