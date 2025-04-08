@@ -95,7 +95,7 @@ export const RegisterPage = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh',
+        minHeight: 'calc(100% - 64px)',
         background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
         p: 2
       }}
