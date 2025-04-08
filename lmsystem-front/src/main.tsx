@@ -5,7 +5,7 @@ import { SnackbarProvider } from "notistack";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <SnackbarProvider maxSnack={5} anchorOrigin={{
+    <SnackbarProvider maxSnack={10} anchorOrigin={{
       vertical: 'top',
       horizontal: 'right',
     }}>
