@@ -42,7 +42,7 @@ export const TodoMainPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
 
-  const apiUrl = 'https://localhost:7150/api/Todo';
+  const apiUrl = '/api/Todo';
 
   const fetchTodos = async () => {
     setIsLoading(true);

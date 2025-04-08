@@ -53,7 +53,7 @@ export const LoginPage = () => {
   const handleLogin = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post('https://localhost:7150/api/Auth/login', userData);
+      const response = await axios.post('/api/Auth/login', userData);
       localStorage.setItem('token', `Bearer ${response.data.token}`);
       enqueueSnackbar('Авторизация прошла успешно!', { variant: 'success' });
       navigate('/');

@@ -66,7 +66,7 @@ export const RegisterPage = () => {
 
     setIsLoading(true);
     try {
-      await axios.post('https://localhost:7150/api/Auth/register', userRegisterData);
+      await axios.post('/api/Auth/register', userRegisterData);
       enqueueSnackbar('Регистрация прошла успешно!', { variant: 'success' });
       navigate('/login');
     } catch {
